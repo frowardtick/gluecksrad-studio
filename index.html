@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Glücksrad Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <header class="brand">
+        <div class="brand-mark">◉</div>
+        <div>
+          <span class="eyebrow">Glücksrad</span>
+          <h1>Studio</h1>
+        </div>
+      </header>
+
+      <section class="name-section">
+        <label for="wheelName">Name des Glücksrads</label>
+        <input id="wheelName" type="text" value="Mein Glücksrad" maxlength="40">
+      </section>
+
+      <section class="segments-section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Felder</span>
+            <h2>Bearbeiten</h2>
+          </div>
+          <button id="addSegment" class="icon-button" type="button" title="Feld hinzufügen">＋</button>
+        </div>
+        <div id="segmentList" class="segment-list"></div>
+      </section>
+
+      <button id="saveWheel" class="primary-button" type="button">Rad speichern</button>
+
+      <section class="saved-section">
+        <div class="section-heading compact">
+          <span class="eyebrow">Meine Räder</span>
+          <button id="newWheel" class="text-button" type="button">Neu</button>
+        </div>
+        <div id="savedList" class="saved-list"></div>
+      </section>
+    </aside>
+
+    <section class="stage">
+      <div class="stage-topbar">
+        <div class="status-dot"><span></span> Bereit</div>
+        <button id="soundToggle" class="sound-button" type="button" aria-label="Ton einschalten">🔊</button>
+      </div>
+
+      <div class="wheel-area">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheelCanvas" aria-label="Glücksrad"></canvas>
+        <button id="spinButton" class="spin-button" type="button" aria-label="Glücksrad drehen">
+          <span>SPIN</span>
+        </button>
+      </div>
+
+      <div id="winnerCard" class="winner-card" aria-live="polite">
+        <span class="winner-label">Gewonnen</span>
+        <strong id="winnerText">Bereit zum Drehen</strong>
+        <button id="removeWinner" class="remove-winner" type="button" title="Gewonnenes Feld löschen" aria-label="Gewonnenes Feld löschen" hidden>×</button>
+      </div>
+    </section>
+  </main>
+
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
